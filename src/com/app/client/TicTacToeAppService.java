@@ -13,10 +13,6 @@ public interface TicTacToeAppService extends RemoteService {
     // Sample interface method of remote interface
     CallbackResult process(List<Coordinates> crosses, List<Coordinates> zeros, List<Coordinates> spaces);
 
-    /**
-     * Utility/Convenience class.
-     * Use MySampleApplicationService.App.getInstance() to access static instance of MySampleApplicationServiceAsync
-     */
     public static class App {
         private static TicTacToeAppServiceAsync ourInstance = GWT.create(TicTacToeAppService.class);
 

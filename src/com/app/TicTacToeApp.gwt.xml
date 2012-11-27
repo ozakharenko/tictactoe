@@ -5,11 +5,17 @@
     <!-- Inherit the core Web Toolkit stuff.                  -->
     <inherits name='com.google.gwt.user.User'/>
 
+    <!-- Inherit the UiBinder module.                               -->
+    <inherits name="com.google.gwt.uibinder.UiBinder"/>
+
+    <inherits name="com.google.gwt.resources.Resources" />
+
     <!-- Specify the app entry point class.                   -->
     <entry-point class='com.app.client.TicTacToeApp'/>
 
-
     <!-- Specify the app servlets.                   -->
     <servlet path='/TicTacToeAppService' class='com.app.server.TicTacToeAppServiceImpl'/>
+
+    <source path='client'/>
 
 </module>
