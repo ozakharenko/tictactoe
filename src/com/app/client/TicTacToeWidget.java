@@ -16,13 +16,13 @@ import java.util.List;
 
 public class TicTacToeWidget extends Composite {
 
-    public static final String EMPTY_CHARACTER = "Click here";
-    public static final String CROSS_CHARACTER = "X";
-    public static final String ZERO_CHARACTER = "O";
-
     private static TicTacToeWidgetUiBinder uiBinder = GWT.create(TicTacToeWidgetUiBinder.class);
 
-    private final TicTacToeMessages messages = GWT.create(TicTacToeMessages.class);
+    private static final TicTacToeMessages messages = GWT.create(TicTacToeMessages.class);
+
+    public static final String EMPTY_CHARACTER = messages.clickMessage();
+    public static final String CROSS_CHARACTER = "X";
+    public static final String ZERO_CHARACTER = "O";
 
     interface TicTacToeWidgetUiBinder extends UiBinder<Widget, TicTacToeWidget> { }
 
@@ -42,14 +42,14 @@ public class TicTacToeWidget extends Composite {
         grid.insertRow(3);
         grid.addClickHandler(new ClickHandler() {
             public void onClick(ClickEvent event) {
-                HTMLTable.Cell cell = grid.getCellForEvent(event);
-                if (grid.getText(cell.getRowIndex(), cell.getCellIndex()).equals(EMPTY_CHARACTER)) {
-                    grid.setText(cell.getRowIndex(), cell.getCellIndex(), CROSS_CHARACTER);
-                    List<Coordinates> crosses = getAllCoordinates(grid, CROSS_CHARACTER);
-                    List<Coordinates> zeros = getAllCoordinates(grid, ZERO_CHARACTER);
-                    List<Coordinates> spaces = getAllCoordinates(grid, EMPTY_CHARACTER);
-                    TicTacToeAppService.App.getInstance().process(crosses, zeros, spaces, new ClickAsyncCallback(grid, label, ZERO_CHARACTER));
-                }
+            HTMLTable.Cell cell = grid.getCellForEvent(event);
+            if (grid.getText(cell.getRowIndex(), cell.getCellIndex()).equals(EMPTY_CHARACTER)) {
+                grid.setText(cell.getRowIndex(), cell.getCellIndex(), CROSS_CHARACTER);
+                List<Coordinates> crosses = getAllCoordinates(grid, CROSS_CHARACTER);
+                List<Coordinates> zeros = getAllCoordinates(grid, ZERO_CHARACTER);
+                List<Coordinates> spaces = getAllCoordinates(grid, EMPTY_CHARACTER);
+                TicTacToeAppService.App.getInstance().process(crosses, zeros, spaces, new ClickAsyncCallback(grid, label, ZERO_CHARACTER));
+            }
             }
         });
 
@@ -64,7 +64,7 @@ public class TicTacToeWidget extends Composite {
     @UiHandler("button")
     void handleClick(ClickEvent e) {
         populateGrid(grid);
-        label.setText("Click on the cell!");
+        label.setText(messages.labelText());
     }
 
     private List<Coordinates> getAllCoordinates(FlexTable grid, String value) {
