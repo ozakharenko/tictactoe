@@ -3,8 +3,8 @@
              xmlns:g='urn:import:com.google.gwt.user.client.ui'>
 
     <g:HTMLPanel>
-        <g:Button ui:field="button" text="Start new game"/>
-        <g:Label ui:field="label" text="Click on the cell!"/>
+        <g:Button ui:field="button"/>
+        <g:Label ui:field="label"/>
         <g:FlexTable ui:field="grid" borderWidth="2"/>
     </g:HTMLPanel>
 

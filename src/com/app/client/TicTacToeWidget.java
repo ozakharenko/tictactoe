@@ -22,6 +22,8 @@ public class TicTacToeWidget extends Composite {
 
     private static TicTacToeWidgetUiBinder uiBinder = GWT.create(TicTacToeWidgetUiBinder.class);
 
+    private final TicTacToeMessages messages = GWT.create(TicTacToeMessages.class);
+
     interface TicTacToeWidgetUiBinder extends UiBinder<Widget, TicTacToeWidget> { }
 
     @UiField
@@ -52,7 +54,10 @@ public class TicTacToeWidget extends Composite {
         });
 
         initWidget(uiBinder.createAndBindUi(this));
+        button.setText(messages.buttonText());
         button.addStyleName(TicTacToeResources.INSTANCE.css().button());
+
+        label.setText(messages.labelText());
         label.addStyleName(TicTacToeResources.INSTANCE.css().label());
     }
 

@@ -10,6 +10,8 @@
 
     <inherits name="com.google.gwt.resources.Resources" />
 
+    <inherits name="com.google.gwt.i18n.I18N" />
+
     <!-- Specify the app entry point class.                   -->
     <entry-point class='com.app.client.TicTacToeApp'/>
 
