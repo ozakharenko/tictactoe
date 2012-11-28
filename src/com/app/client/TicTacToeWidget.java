@@ -54,11 +54,6 @@ public class TicTacToeWidget extends Composite {
         });
 
         initWidget(uiBinder.createAndBindUi(this));
-        button.setText(messages.buttonText());
-        button.addStyleName(TicTacToeResources.INSTANCE.css().button());
-
-        label.setText(messages.labelText());
-        label.addStyleName(TicTacToeResources.INSTANCE.css().label());
     }
 
     @UiHandler("button")

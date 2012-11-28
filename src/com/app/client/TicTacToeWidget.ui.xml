@@ -2,9 +2,12 @@
 <ui:UiBinder xmlns:ui='urn:ui:com.google.gwt.uibinder'
              xmlns:g='urn:import:com.google.gwt.user.client.ui'>
 
+    <ui:with field='res' type='com.app.client.TicTacToeResources'/>
+    <ui:with field='msg' type='com.app.client.TicTacToeMessages'/>
+
     <g:HTMLPanel>
-        <g:Button ui:field="button"/>
-        <g:Label ui:field="label"/>
+        <g:Button styleName='{res.css.button}' ui:field="button" text="{msg.buttonText}"/>
+        <g:Label styleName='{res.css.label}' ui:field="label" text="{msg.labelText}"/>
         <g:FlexTable ui:field="grid" borderWidth="2"/>
     </g:HTMLPanel>
 
